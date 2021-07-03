@@ -1,4 +1,4 @@
-var buttonEl = document.querySelector("#save-task");
+var formEl = document.querySelector("#task-form");
 var tasksToDoEl = document.querySelector("#tasks-to-do");
 
 /* buttonEl.addEventListener("click", function() {
@@ -9,7 +9,9 @@ var tasksToDoEl = document.querySelector("#tasks-to-do");
 }); The next two functions are this function split into two */
 
 // this is the function that will run when the user clicks on the button...
-var createTaskHandler = function() {
+var createTaskHandler = function(event) {
+    event.preventDefault();
+
     var listItemEl = document.createElement("li");
     listItemEl.className = "task-item";
     listItemEl.textContent = "This is a new task.";
@@ -17,4 +19,4 @@ var createTaskHandler = function() {
 }
 
 // and this is the function that calls it as a callback using an event listener
-buttonEl.addEventListener("click", createTaskHandler);
+formEl.addEventListener("submit", createTaskHandler);
