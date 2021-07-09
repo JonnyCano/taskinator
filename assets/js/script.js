@@ -245,8 +245,28 @@ var saveTasks = function() {
     localStorage.setItem("tasks", JSON.stringify(tasks));
 }
 
+var loadTasks = function() {
+    // get task items from localStorage
+    tasks = localStorage.getItem("tasks", tasks);
+
+    // check if tasks is equal to null
+    if (tasks === null || !tasks) {
+        tasks = [];
+        return false;
+    }
+    // convert tasks from the string format back into an array of objects
+    tasks = JSON.parse(tasks);
+
+    // iterate through a tasks array and create task elements on the page from it
+    for (var i = 0; i < tasks.length; i++) {
+        taskIdCounter = task[i];
+        var listItemEl = createElement("li");
+    }
+}
+
 pageContentEl.addEventListener("click", taskButtonHandler);
 
 // and this is the function that calls it as a callback using an event listener
 formEl.addEventListener("submit", taskFormHandler);
 pageContentEl.addEventListener("change", taskStatusChangeHandler);
+loadTasks();
