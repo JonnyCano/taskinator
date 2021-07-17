@@ -287,6 +287,7 @@ var loadTasks = function() {
         // append taskActionsEl to listItemEl
         listItemEl.appendChild(taskActionsEl)
 
+        // how would I refactor without losing the following code?
         if (tasks[i].status == "to do") {
             listItemEl.querySelector("select[name='status-change']").selectedIndex = 0
             tasksToDoEl.appendChild(listItemEl)
