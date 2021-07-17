@@ -247,13 +247,13 @@ var saveTasks = function() {
 
 var loadTasks = function() {
     // get task items from localStorage
-    tasks = localStorage.getItem("tasks", tasks);
+    tasks = localStorage.getItem("tasks");
 
-    // // check if tasks is equal to null
-    // if (tasks === null || !tasks) {
-    //     tasks = [];
-    //     return false;
-    // }
+    // check if tasks is equal to null
+    if (tasks === null || !tasks) {
+        tasks = [];
+        return false;
+    }
 
     // convert tasks from the string format back into an array of objects
     tasks = JSON.parse(tasks);
